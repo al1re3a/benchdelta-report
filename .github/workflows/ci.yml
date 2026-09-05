@@ -22,4 +22,5 @@ jobs:
       - name: Project checks
         run: |
           python -m unittest discover -s tests -v
-          node --test tests/report.test.cjs
+          node --test tests/*.test.cjs
+          python build_demo.py

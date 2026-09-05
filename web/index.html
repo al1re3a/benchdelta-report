@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare two Hyperfine JSON exports in your browser. See performance changes, set a regression budget, and copy a Markdown report. Files stay on your device.">
+  <meta name="theme-color" content="#101b2b">
+  <title>BenchDelta — compare two Hyperfine runs</title>
+  <link rel="stylesheet" href="demo.css">
+  <script defer src="compare.js"></script>
+  <script defer src="demo.js"></script>
+</head>
+<body>
+<header class="nav"><a class="brand" href="./">Bench<span>Delta</span><small>BEFORE → AFTER</small></a><nav aria-label="Main"><a href="#how">How it works</a><a href="https://github.com/al1re3a/benchdelta-report/blob/main/README.en.md">Docs</a><a class="github" href="https://github.com/al1re3a/benchdelta-report">Star on GitHub ↗</a></nav></header>
+<main>
+  <section class="hero"><div><span class="eyebrow">FOR YOUR NEXT PERFORMANCE REVIEW</span><h1>Find what<br>got slower.</h1><p>Drop in two Hyperfine exports. Compare the same commands across runs and see what exceeds your regression budget.</p><div class="hero-actions"><a class="primary" href="#compare">Compare my runs ↓</a><button id="sample" type="button">Try sample data</button></div><p class="privacy">Local file processing · No account · No uploads of your benchmark files</p></div><aside aria-label="Illustrative comparison"><span class="eyebrow">EXAMPLE / BUILD COMMAND</span><div class="bar-line"><span>Before</span><div class="bar before"></div><b>1.00s</b></div><div class="bar-line"><span>After</span><div class="bar after"></div><b>1.25s</b></div><strong class="delta">+25% <small>longer elapsed time</small></strong><p>Over a 10% budget</p><small>Synthetic example. Lower time is better.</small></aside></section>
+  <section id="compare" class="workspace" aria-labelledby="compare-title"><div class="section-head"><div><span class="eyebrow">01 / COMPARE</span><h2 id="compare-title">Two files. One clear comparison.</h2></div><span id="source-label" class="pill">Synthetic sample loaded</span></div>
+    <div class="inputs"><label class="file">Baseline <span id="before-name">Example baseline</span><input id="before" type="file" accept=".json,application/json"><small>Hyperfine JSON · up to 4 MiB</small></label><label class="file">Candidate <span id="after-name">Example candidate</span><input id="after" type="file" accept=".json,application/json"><small>Use the same command names</small></label><label class="budget">Regression budget <span><input id="budget" type="number" min="0" max="1000000" step="0.1" value="10" inputmode="decimal"> %</span><small>Allowed increase in mean time</small></label></div>
+    <p id="error" role="alert" hidden></p><p id="notice" role="status" class="notice" hidden></p>
+    <div class="results-head"><p id="summary" aria-live="polite"></p><div><button id="copy" type="button">Copy Markdown</button><button id="download" type="button">Download JSON</button></div></div>
+    <div class="table-wrap"><table><thead><tr><th scope="col">Command</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Change</th><th scope="col">Result</th></tr></thead><tbody id="rows"></tbody></table></div>
+    <p class="fineprint">Mean elapsed times only. This is not a statistical significance test. Use repeated measurements on comparable machines and conditions.</p>
+  </section>
+  <section id="how" class="how"><div><span class="eyebrow">02 / REPRODUCE</span><h2>Keep your measurement workflow.</h2><p>Export a baseline, make your change, then export a candidate using the same command. BenchDelta compares the exports; it does not execute your commands.</p></div><div class="terminal"><span>TERMINAL / HYPERFINE</span><pre><code>hyperfine --warmup 3 --export-json before.json 'your-command'
+# Apply your change, then run on the same machine:
+hyperfine --warmup 3 --export-json after.json 'your-command'</code></pre><a href="https://github.com/sharkdp/hyperfine">Get Hyperfine ↗</a></div></section>
+  <section class="next"><div><h2>Useful in your next PR.</h2><p>Copy the comparison into a review, or use the Python CLI to exit with code 1 when a regression exceeds your budget.</p><a href="https://github.com/al1re3a/benchdelta-report/blob/main/docs/CI.md">See the CI recipe ↗</a></div><div><h2>Help shape the next version.</h2><p>Found a result the comparison cannot explain? Share a small, non-sensitive example so it can be improved.</p><a href="https://github.com/al1re3a/benchdelta-report/issues/new?template=feedback.yml">Report your experience ↗</a></div></section>
+</main>
+<footer><span>Built by <a href="https://github.com/al1re3a">al1re3a</a> · MIT licensed</span><a href="https://github.com/al1re3a/benchdelta-report">Source & releases</a><a href="https://github.com/al1re3a/benchdelta-report/blob/main/README.md">راهنمای فارسی</a></footer>
+</body></html>
