@@ -1,0 +1,30 @@
+name: Usage feedback
+description: Tell us what happened when you compared your own benchmark runs.
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What were you trying to compare?
+      description: Describe the change and whether you used the browser or CLI.
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: How far did you get?
+      options:
+        - Compared my own exports successfully
+        - Tried the sample only
+        - Could not load my exports
+        - Got a result I did not understand
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Small example or unexpected result
+      description: Remove private command names, paths, and data before sharing. Never paste credentials.
+  - type: textarea
+    id: next
+    attributes:
+      label: What would make this useful in your regular workflow?

@@ -1,6 +1,12 @@
 <p align="center"><img src="assets/readme-banner.png" alt="تصویر مفهومی اختصاصی BenchDelta" width="100%"></p>
 
 <h1 align="center">BenchDelta</h1>
+
+[English documentation](README.en.md) · [راهنمای استفاده در CI](docs/CI.md)
+
+**بدون نصب:** فایل `benchdelta-browser.zip` را از [آخرین انتشار](https://github.com/al1re3a/benchdelta-report/releases/latest) بگیرید، همهٔ فایل‌ها را استخراج کنید و `index.html` را باز کنید. اگر مرورگر کپی‌کردن از فایل محلی را محدود کرد، دانلود JSON همچنان در دسترس است.
+
+**دموی مرورگر:** با `python build_demo.py` و سپس `python -m http.server 8781 --bind 127.0.0.1 --directory dist`، صفحهٔ <http://localhost:8781> را باز کنید. دو فایل JSON خودتان را انتخاب کنید؛ فایل‌ها در مرورگر پردازش می‌شوند. نمونهٔ اولیه ساختگی و با همین عنوان مشخص شده است.
 <p align="center"><strong>مقایسهٔ خروجی Hyperfine و گزارش HTML آفلاین</strong></p>
 
 <p align="center">
@@ -39,6 +45,7 @@
 - ✅ محاسبهٔ تغییر میانگین زمان و بودجهٔ درصدی قابل‌تنظیم
 - ✅ کد خروج ۱ برای افت بیش از بودجه و ۲ برای ورودی نامعتبر
 - ✅ HTML مستقل با فیلتر و مرتب‌سازی و بدون درخواست شبکه
+- ✅ مقایسهٔ مستقیم دو فایل در مرورگر، تنظیم بودجه، کپی Markdown و دانلود JSON
 
 | مشخصه | مقدار |
 |---|---|
