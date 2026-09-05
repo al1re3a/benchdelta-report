@@ -51,7 +51,7 @@
 |---|---|
 | مخاطب | نگه‌دارندهٔ CLI، کتابخانه و تیم کارایی |
 | فناوری و پیش‌نیاز | Python 3.12+ · Node 22 برای تست رابط |
-| نسخه | 0.1.0 |
+| نسخه | 0.2.0 |
 | مجوز | MIT |
 | مدل اجرا | ابزار محلی؛ بدون حساب سرویس خارجی |
 
@@ -121,10 +121,11 @@ benchdelta-report/
 
 ```bash
 python -m unittest discover -s tests -v
-node --test tests/report.test.cjs
+node --test tests/*.test.cjs
+python build_demo.py
 ```
 
-در اعتبارسنجی محلی Windows در ۲۰۲۶-۰۹-۰۵، **14 تست یا assertion اصلی** پاس شد. جزئیات محیط و موارد بررسی‌نشده در [VALIDATION.md](VALIDATION.md) آمده است. Badge بالای صفحه نتیجهٔ واقعی GitHub Actions را نشان می‌دهد؛ سبز بودن آن را از اجرای محلی استنتاج نمی‌کنیم.
+در اعتبارسنجی محلی Windows در ۲۰۲۶-۰۹-۰۵، **۱۱ تست Python و ۱۴ تست JavaScript (مجموعاً ۲۵ تست)** پاس شد و دموی استاتیک ساخته شد. [هر چهار اجرای CI نسخهٔ 0.2.0](https://github.com/al1re3a/benchdelta-report/actions/runs/33979863682) نیز موفق بود. جزئیات محیط و موارد بررسی‌نشده در [VALIDATION.md](VALIDATION.md) آمده است؛ تست کامل همهٔ مرورگرها انجام نشده است.
 
 <a id="limitations"></a>
 ## ⚠️ محدودیت‌ها
